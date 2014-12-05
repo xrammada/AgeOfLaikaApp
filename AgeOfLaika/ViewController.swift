@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var dogYearsLabel: UILabel!
+    @IBOutlet weak var humanYearsTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +24,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func convertButton(sender: UIButton) {
+    
+        let humanYear = humanYearsTextField.text.toInt()!
+        dogYearsLabel.text =  "\(humanYear) Human years is\n\(humanYear * 7) Dog years"
+        dogYearsLabel.hidden = false
+        
+        humanYearsTextField.text = ""
+        humanYearsTextField.placeholder = "Insert Human Years"
+        
+        // close keypad
+        humanYearsTextField.resignFirstResponder()
+        
+    }
 
 }
 
